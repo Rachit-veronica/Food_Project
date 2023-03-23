@@ -1,0 +1,35 @@
+.orderFoodoutter {
+  width: 100%;
+  height: min-content;
+  background-image: url(../img/orderBgImg.jpg);
+  .orderFoodInner {
+    max-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    .orderFoodText {
+      text-align: center;
+      margin-top: 30%;
+      .orderFoodBtn {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        button {
+          display: grid;
+          grid-template-columns: 30% 70%;
+          width: 50%;
+        }
+      }
+    }
+
+    .orderFoodImg {
+      text-align: center;
+      img {
+        margin-top: 3%;
+        width: 50%;
+        margin-bottom: 0%;
+      }
+    }
+  }
+}

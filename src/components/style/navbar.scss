@@ -1,0 +1,24 @@
+.navbarOutterBody {
+  width: 100%;
+  height: min-contents;
+  .navbarInnerBody {
+    max-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    .upperBody {
+      display: grid;
+      grid-template-columns: 80% 20%;
+    }
+    .liftSide {
+      display: inline-flex;
+    }
+    .searchBar {
+      input {
+        width: 100%;
+        height: 40px;
+        border-radius: 20px;
+        border-color: black;
+      }
+    }
+  }
+}

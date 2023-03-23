@@ -1,0 +1,27 @@
+.foodCardoutter {
+  max-width: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
+}
+.foodCardinner {
+  display: grid;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  // grid-gap: 0.9%;
+  justify-content: space-around;
+  justify-content: space-between;
+  text-align: center;
+  img {
+    width: 100%;
+  }
+}
+.foodSelectorCardInnerBody {
+  width: 100%;
+  text-align: center;
+}
+.foodCardsItem {
+  margin-bottom: 5%;
+  img {
+    width: 80%;
+  }
+}

@@ -1,0 +1,46 @@
+.parterOutterBody {
+  width: 100%;
+  height: min-content;
+  margin-top: 5%;
+  .parterInnerBody {
+    max-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    .deliveryCard {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      margin-right: 2%;
+      border: 2px solid black;
+      border-radius: 5%;
+
+      .deliveryCardText {
+        // margin-top: 50%;
+      }
+      .deliveryCardImg {
+        img {
+          width: 80%;
+          float: right;
+        }
+      }
+    }
+    .partnerCard {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      margin-left: 2%;
+      border: 2px solid black;
+      border-radius: 5%;
+      .partnerCardText {
+        // margin-top: 50%;
+      }
+
+      .partnerCardImg {
+        img {
+          width: 80%;
+          float: right;
+        }
+      }
+    }
+  }
+}
