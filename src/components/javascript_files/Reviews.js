@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Swiper from "../javascript_files/Swiper";
 import database from "../Backend/Firebase";
-import FirebasePostData from "../Backend/FirebasePostData";
 
 import {
   ReviewOutterBody,
@@ -10,13 +9,17 @@ import {
   ReviewsCardBody,
   CreateRating,
 } from "../style/ReviewsStyle";
-
+import PopUp from "./PopUp";
 import { FaStar } from "react-icons/fa";
 import { Container, Radio, Rating } from "../style/StarRatingStyle";
+import LoginPage from "./LoginPage";
+import CrudOpration from "./LandingPage/CrudOpration";
 
 // import database from "./";
 
 const Reviews = () => {
+  const [idPass, setIdPass] = useState("");
+
   const [addInfo, setAddInfo] = useState({
     ratingNumber: "",
     ratingText: "",
@@ -24,6 +27,7 @@ const Reviews = () => {
 
   const [getData, setGetData] = useState([]);
 
+  let setCallBack = "";
   const handlingdata = (e) => {
     const num = e.target.name;
     const value = e.target.value;
@@ -59,13 +63,30 @@ const Reviews = () => {
     dbGetData();
   }, []);
 
+  console.log(setCallBack);
+
+  const callBackFunction = (data) => {
+    setShowPopup(!showPopup);
+    setIdPass(data);
+  };
+  const [showPopup, setShowPopup] = useState(false);
+
+  // const togglePopup = () => {
+  // };
+
   return (
     <>
       <ReviewOutterBody>
         <ReviewInnerBody>
           <H1ReviewsText>Customer reviews</H1ReviewsText>
           <ReviewsCardBody>
-            <Swiper data={getData} style="22" />
+            <Swiper data={getData} style="22" back={callBackFunction} />
+            {showPopup && (
+              <PopUp
+                content=<CrudOpration data={idPass} />
+                handleClose={callBackFunction}
+              />
+            )}
             <CreateRating>
               <form onSubmit={addText}>
                 <Container>
@@ -98,7 +119,6 @@ const Reviews = () => {
                     );
                   })}
                 </Container>
-
                 <br />
                 <textarea
                   type="text"
@@ -107,6 +127,7 @@ const Reviews = () => {
                   autoComplete="off"
                   value={addInfo.ratingText}
                   onChange={handlingdata}
+                  style={{ width: "90%", height: "70px" }}
                 />
                 <button type="submit">click here</button>
               </form>

@@ -4,12 +4,10 @@
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
-  position: relative;
   .topSectionInnerBody {
     width: 100%;
     height: min-content;
     margin-top: 2%;
-    position: relative;
 
     .text {
       text-align: center;
@@ -18,7 +16,7 @@
         text-align: center;
         justify-content: center;
         padding: 20%;
-        h1 select{
+        h1 select {
           width: 10%;
         }
         button {

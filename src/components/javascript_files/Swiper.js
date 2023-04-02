@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   SwiperSlideOutterBody,
@@ -7,20 +7,30 @@ import {
   RatingStarPoint,
   RatingText,
   RatingBox,
+  ThreeDotIcon,
 } from "../style/Swiper";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
 import { FreeMode, Pagination } from "swiper";
-import StarRating from "./StarRating";
 import StarPrint from "./LandingPage/StarPrint";
 
 export default function App(props) {
   const data = props.data;
+  console.log(data.key);
   const styledInfo = props.style;
   console.log(styledInfo);
 
+  const callBack = (id) => {
+    // Event.preventDefault();
+    props.back(id);
+    console.log(id);
+  };
   return (
     <>
       <Swiper
@@ -32,9 +42,9 @@ export default function App(props) {
         }}
         modules={[FreeMode, Pagination]}
         className="mySwiper"
-        style={{ border: "2px solid black" }}
+        style={{ border: "2px solid black", position: "unset" }}
       >
-        {data.map((information) => {
+        {Object.keys(data).map((id, index) => {
           return (
             <>
               <SwiperSlide>
@@ -42,10 +52,18 @@ export default function App(props) {
                   <SwiperSlideInnerBody>
                     <RatingStarBody>
                       <RatingBox style={{ marginBottom: `${styledInfo}%` }}>
+                        <ThreeDotIcon>
+                          <FontAwesomeIcon
+                            icon={faEllipsisVertical}
+                            // onClick={togglePopup}
+                            id="threeDot"
+                            onClick={() => callBack(data[id])}
+                          />
+                        </ThreeDotIcon>
                         <RatingStarPoint>
-                          <StarPrint data={information.ratingNumber} />
+                          <StarPrint data={data[id].ratingNumber} />
                         </RatingStarPoint>
-                        <RatingText>{information.ratingText}</RatingText>
+                        <RatingText>{data[id].ratingText}</RatingText>
                       </RatingBox>
                     </RatingStarBody>
                   </SwiperSlideInnerBody>

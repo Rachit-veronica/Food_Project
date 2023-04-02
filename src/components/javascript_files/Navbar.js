@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "../style/navbar.scss";
 import Search from "./Search";
+import PopUp from "./PopUp";
+
+import LoginPage from "./LoginPage";
 
 const Navbar = () => {
   const [data, setdata] = useState("none");
@@ -10,6 +13,12 @@ const Navbar = () => {
     } else {
       setdata("none");
     }
+  };
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
   };
   return (
     <>
@@ -38,7 +47,8 @@ const Navbar = () => {
             </div>
             <div className="rightSide">
               <img src="#" onClick={search} /> {/* search img or icon*/}
-              <img src="#" /> {/* login img or icon*/}
+              <img src="#" onClick={togglePopup} /> {/* login img or icon*/}
+
             </div>
           </div>
           <Search style={data} />
