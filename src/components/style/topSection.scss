@@ -2,8 +2,9 @@
   background-image: url(../img/bg.jpg);
   background-size: contain;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 100%;
   width: 100%;
+  height: min-content;
   .topSectionInnerBody {
     width: 100%;
     height: min-content;
@@ -12,10 +13,12 @@
     .text {
       text-align: center;
       color: aliceblue;
+      height: min-content;
       .textItem {
         text-align: center;
         justify-content: center;
         padding: 20%;
+        height: min-content;
         h1 select {
           width: 10%;
         }

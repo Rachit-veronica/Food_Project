@@ -1,0 +1,64 @@
+.dominosSeletedItemDataBody {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: space-around;
+  justify-content: space-between;
+
+  .dominosSeletedItemData {
+    margin-bottom: 5%;
+    border: 2px solid black;
+
+    .dominosSeletedItemDataInnerBody {
+      text-align: start;
+      max-width: 90%;
+      margin-left: 5%;
+      margin-right: 5%;
+
+      .menuDiv {
+        text-align: end;
+        #menu {
+          margin-top: 2%;
+          margin-bottom: 2%;
+          margin-right: 5%;
+          height: 20px;
+        }
+      }
+      img {
+        width: 100%;
+      }
+      h1 {
+        margin-bottom: 2%;
+      }
+      .itemSize {
+        margin-top: 2%;
+        button {
+          width: 25%;
+          height: 22px;
+          margin: 0% 2% 0% 2%;
+        }
+      }
+      .itemHight {
+        margin-top: 2%;
+        button {
+          width: 25%;
+          height: 22px;
+          margin: 0% 2% 0% 2%;
+        }
+      }
+      .itemPriceAndAddBtn {
+        margin-top: 3%;
+        margin-bottom: 3%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        .buyNowBtn {
+          text-align: end;
+          button {
+            width: 40%;
+            height: 22px;
+          }
+        }
+      }
+    }
+  }
+}

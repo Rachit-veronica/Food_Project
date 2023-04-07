@@ -1,16 +1,74 @@
 .navbarOutterBody {
   width: 100%;
   height: min-contents;
+  margin-top: 2%;
   .navbarInnerBody {
     max-width: 80%;
     margin-left: 10%;
     margin-right: 10%;
     .upperBody {
       display: grid;
-      grid-template-columns: 80% 20%;
+      grid-template-columns: 90% 10%;
     }
     .liftSide {
       display: inline-flex;
+      img {
+        width: 15%;
+      }
+
+      .navbarLocation {
+        margin-left: 2%;
+        // width: fit-content;
+        .imgText {
+          display: inline-flex;
+          margin-top: 15%;
+        }
+        #icon {
+          margin-right: 2%;
+          width: 100%;
+        }
+      }
+      .line {
+        height: 80%;
+        width: 1px;
+        background-color: black;
+        margin: 0 10px;
+        margin-top: 0.7%;
+        margin-left: 2%;
+        margin-right: 2%;
+      }
+      p {
+        height: min-content;
+        margin-top: 1.2%;
+        margin-left: 0%;
+        cursor: pointer;
+      }
+      #back {
+        margin-left: 2%;
+      }
+    }
+    .rightSide {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      #icon {
+        margin-top: 10%;
+        height: 22px;
+        cursor: pointer;
+      }
+      span {
+        height: min-content;
+        margin-top: 8%;
+        p {
+          cursor: pointer;
+          width: min-content;
+          height: min-content;
+          margin-top: -75%;
+          margin-left: 65%;
+          color: rgb(131, 131, 255);
+          border-radius: 50%;
+        }
+      }
     }
     .searchBar {
       input {

@@ -1,7 +1,7 @@
 import React from "react";
 import "../style/topSection.scss";
 
-const TopSection = () => {
+const TopSection = ({data}) => {
   return (
     <div>
       <div className="topSectionOutterBody">

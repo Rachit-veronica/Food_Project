@@ -14,6 +14,7 @@ import { FaStar } from "react-icons/fa";
 import { Container, Radio, Rating } from "../style/StarRatingStyle";
 import LoginPage from "./LoginPage";
 import CrudOpration from "./LandingPage/CrudOpration";
+import FetchData from "../Backend/FetchData";
 
 // import database from "./";
 
@@ -59,8 +60,16 @@ const Reviews = () => {
     });
   };
 
+  // const trye = async () => {
+  //   const reviews = () => {};
+
+  //   const data = await (<FetchData dbname="reviews" info={reviews} />);
+  //   setGetData(data);
+  // };
+
   useEffect(() => {
     dbGetData();
+    // trye();
   }, []);
 
   console.log(setCallBack);

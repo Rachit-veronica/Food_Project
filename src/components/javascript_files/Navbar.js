@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../style/navbar.scss";
 import Search from "./Search";
 import PopUp from "./PopUp";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMagnifyingGlass,
+  faUser,
+  faLocationDot,
+  faBagShopping,
+} from "@fortawesome/free-solid-svg-icons";
 import LoginPage from "./LoginPage";
 
-const Navbar = () => {
+import logo from "../img/logo.png";
+
+const Navbar = (props) => {
+  const dataStyle = props.data;
   const [data, setdata] = useState("none");
   const search = () => {
     if (data == "none") {
@@ -15,24 +24,29 @@ const Navbar = () => {
     }
   };
 
+  const [itemNum, setItemNum] = useState("0");
+
+  const [buysStyle, setBuysStyle] = useState("none");
+
   const [showPopup, setShowPopup] = useState(false);
 
-  const togglePopup = () => {
+  const togglePopup = (Event) => {
+    Event.preventDefault();
     setShowPopup(!showPopup);
   };
+  // useEffect(() => {
+  // setBuysStyle(dataStyle);
+  // });
   return (
     <>
       <div className="navbarOutterBody">
         <div className="navbarInnerBody">
           <div className="upperBody">
             <div className="liftSide">
-              <div className="logo">
-                <img src="#" />
-                <p>text</p>
-              </div>
+              <img src={logo} />
               <div className="navbarLocation">
                 <div className="imgText">
-                  <img src="#" />
+                  <FontAwesomeIcon id="icon" icon={faLocationDot} />
                   <select>
                     <option>Kanpur</option>
                     <option>Lucknow</option>
@@ -41,19 +55,27 @@ const Navbar = () => {
                   </select>
                 </div>
               </div>
-              <div id="line"></div>
+              <div className="line"></div>
               <p>Cuisine</p>
-              <p>Back to main demo</p>
+              <p id="back">Back to main demo</p>
             </div>
             <div className="rightSide">
-              <img src="#" onClick={search} /> {/* search img or icon*/}
-              <img src="#" onClick={togglePopup} /> {/* login img or icon*/}
-
+              <FontAwesomeIcon
+                id="icon"
+                icon={faMagnifyingGlass}
+                onClick={search}
+              />
+              <FontAwesomeIcon id="icon" icon={faUser} onClick={togglePopup} />
+              <span style={{ display: buysStyle }}>
+                <FontAwesomeIcon id="icon" icon={faBagShopping} />
+                <p>{itemNum}</p>
+              </span>
             </div>
           </div>
           <Search style={data} />
-          {/* <div className="searchBar" style={{ display: `${data}` }}>
-            <input placeholder="Search" /> */}
+          {showPopup && (
+            <PopUp content=<LoginPage /> handleClose={togglePopup} />
+          )}
         </div>
       </div>
     </>

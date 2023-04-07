@@ -11,7 +11,9 @@ const StarPrint = (props) => {
         <i className="fa fa-star" key={i} style={{ color: "yellow" }}></i>
       );
     } else {
-      stars.push(<i className="fa fa-star" key={i}  style={{ color: "gray" }}></i>);
+      stars.push(
+        <i className="fa fa-star" key={i} style={{ color: "gray" }}></i>
+      );
     }
   }
 

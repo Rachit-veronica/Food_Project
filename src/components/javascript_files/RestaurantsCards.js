@@ -19,7 +19,7 @@ import img9 from "../img/restaurants/p9.png";
 import Dominos from "./FoodOrderPage/Dominos";
 import { Link } from "react-router-dom";
 
-const RestaurantsCards = () => {
+const RestaurantsCards = ({ onData }) => {
   const restaurantCardData = [
     {
       img: img1,
@@ -67,6 +67,10 @@ const RestaurantsCards = () => {
       url: "/Order",
     },
   ];
+  const restaurantBtn = () => {
+    const dataFromChild = "block";
+    onData(dataFromChild);
+  };
   return (
     <>
       <OutterBody>
@@ -79,7 +83,7 @@ const RestaurantsCards = () => {
                 <>
                   <CardDiv>
                     <Link to={data.url}>
-                      <Img src={data.img} />
+                      <Img src={data.img} onClick={restaurantBtn} />
                     </Link>
                   </CardDiv>
                 </>
