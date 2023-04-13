@@ -41,7 +41,7 @@ const FoodSelectorCard = () => {
     },
   ];
   return (
-    <div>
+    <>
       <div className="foodSelectorCardOutterBody">
         <div className="foodSelectorCardInnerBody">
           <h1>Trending food in your city</h1>
@@ -53,8 +53,10 @@ const FoodSelectorCard = () => {
                   <>
                     <a>
                       <div className="foodCardsItem">
+                      <div className="responvisefoodCardsItem">
                         <img src={item.img} />
                         <h2>{item.name}</h2>
+                        </div>
                       </div>
                     </a>
                   </>
@@ -64,7 +66,7 @@ const FoodSelectorCard = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

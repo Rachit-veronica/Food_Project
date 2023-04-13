@@ -1,27 +1,55 @@
-.foodCardoutter {
-  max-width: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 2%;
-}
-.foodCardinner {
-  display: grid;
-  grid-template-columns: 33.3% 33.3% 33.3%;
-  // grid-gap: 0.9%;
-  justify-content: space-around;
-  justify-content: space-between;
-  text-align: center;
-  img {
-    width: 100%;
-  }
-}
-.foodSelectorCardInnerBody {
-  width: 100%;
-  text-align: center;
-}
-.foodCardsItem {
-  margin-bottom: 5%;
-  img {
-    width: 80%;
+.foodSelectorCardOutterBody {
+  margin-top: 5%;
+  .foodSelectorCardInnerBody {
+    text-align: center;
+    h1 {
+      color: #33373e;
+    }
+    p {
+      color: gray;
+    }
+    .foodCardoutter {
+      max-width: 100%;
+      margin-left: 5%;
+      margin-right: 5%;
+      margin-top: 2%;
+    }
+    .foodCardinner {
+      display: grid;
+      grid-template-columns: 33.3% 33.3% 33.3%;
+      // grid-gap: 0.9%;
+      justify-content: space-around;
+      justify-content: space-between;
+      text-align: center;
+      @media (max-width: 860px) {
+        grid-template-columns: 50% 50%;
+      }
+    }
+    .foodSelectorCardInnerBody {
+      width: 100%;
+      text-align: center;
+    }
+    .foodCardsItem {
+      margin-bottom: 10%;
+      width: 100%;
+      .responvisefoodCardsItem {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        img {
+          width: 100%;
+          border-radius: 10px 10px 0px 0px;
+        }
+        h2 {
+          color: #33373e;
+          margin-top: 2%;
+          margin-bottom: 4%;
+        }
+      }
+    }
   }
 }
