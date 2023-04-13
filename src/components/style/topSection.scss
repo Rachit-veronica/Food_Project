@@ -1,10 +1,7 @@
 .topSectionOutterBody {
   background-image: url(../img/bg.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 100%;
-  width: 100%;
-  height: min-content;
+  background-size: cover;
+  background-position: center;
   .topSectionInnerBody {
     width: 100%;
     height: min-content;
@@ -19,8 +16,16 @@
         justify-content: center;
         padding: 20%;
         height: min-content;
+        p {
+          font-family: "Noto Sans", sans-serif;
+          font-size: larger;
+        }
+        h1 {
+          font-family: "Signika Negative", sans-serif;
+        }
         h1 select {
           width: 10%;
+          height: 22px;
         }
         button {
           width: 30%;
@@ -32,6 +37,8 @@
         button:hover {
           background-color: white;
           color: rgb(198, 49, 49);
+          border-radius: 20px;
+          transition: 1s;
         }
       }
     }

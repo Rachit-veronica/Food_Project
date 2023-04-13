@@ -13,11 +13,19 @@ function App() {
   const handleData = (dataFromChild) => {
     setData(dataFromChild);
   };
+
+  const [valueBack, setValueBack] = useState("");
+
+  const valueBackHandleData = (dataFromChild) => {
+    setValueBack(dataFromChild);
+  };
+
+
   return (
     <>
-      <Navbar data={data} />
+      <Navbar style={data} valueBack={valueBackHandleData}/>
       <Routes>
-        <Route path="/" element={<LandingPage info={handleData} />} />
+        <Route path="/" element={<LandingPage info={handleData} selecterData={valueBack} />} />
         <Route path="Order" element={<Dominos />} />
         <Route Component={<Error />} />
       </Routes>

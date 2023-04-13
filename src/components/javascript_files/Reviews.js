@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Swiper from "../javascript_files/Swiper";
-import database from "../Backend/Firebase";
-
+// import database from "../Backend/Firebase";
+import { collection, getDocs } from "firebase/firestore";
+import firebase from "../Backend/Firebase";
 import {
   ReviewOutterBody,
   ReviewInnerBody,
@@ -15,8 +16,10 @@ import { Container, Radio, Rating } from "../style/StarRatingStyle";
 import LoginPage from "./LoginPage";
 import CrudOpration from "./LandingPage/CrudOpration";
 import FetchData from "../Backend/FetchData";
+// import React, { useState, useEffect } from "react";
+// import firebase from "./firebase";
 
-// import database from "./";
+// import database from "../Backend/Firebase";
 
 const Reviews = () => {
   const [idPass, setIdPass] = useState("");
@@ -36,40 +39,42 @@ const Reviews = () => {
   };
 
   const addText = async (Event) => {
-    Event.preventDefault();
-    const { ratingNumber, ratingText } = addInfo;
-    if (ratingNumber && ratingText) {
-      database.child("reviews").push(addInfo, (err) => {
-        console.warn("error found", err);
-        alert("data entered seccess");
-        setAddInfo({ ...addInfo, ratingText: "", ratingNumber: "" });
-      });
-    } else {
-      alert("enter all data filed ");
-    }
+    // Event.preventDefault();
+    // const { ratingNumber, ratingText } = addInfo;
+    // if (ratingNumber && ratingText) {
+    //   database.child("reviews").push(addInfo, (err) => {
+    //     console.warn("error found", err);
+    //     alert("data entered seccess");
+    //     setAddInfo({ ...addInfo, ratingText: "", ratingNumber: "" });
+    //   });
+    // } else {
+    //   alert("enter all data filed ");
+    // }
   };
 
-  const dbGetData = async () => {
-    await database.child("reviews").on("value", (snapshot) => {
-      if (snapshot.val() !== null) {
-        const value = Object.values({ ...snapshot.val() });
-        setGetData(value.reverse());
-      } else {
-        setGetData({});
-      }
-    });
-  };
-
-  // const trye = async () => {
-  //   const reviews = () => {};
-
-  //   const data = await (<FetchData dbname="reviews" info={reviews} />);
-  //   setGetData(data);
+  // const dbGetData = async () => {
+  //   await database.child("reviews").on("value", (snapshot) => {
+  //     if (snapshot.val() !== null) {
+  //       const value = Object.values({ ...snapshot.val() });
+  //       setGetData(value.reverse());
+  //     } else {
+  //       setGetData({});
+  //     }
+  //   });
   // };
 
+  const fetchData = async () => {
+    const querySnapshot = await getDocs(
+      collection(firebase.firestore(), "reviews")
+    );
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+    });
+  };
   useEffect(() => {
-    dbGetData();
+    // dbGetData();
     // trye();
+    fetchData();
   }, []);
 
   console.log(setCallBack);

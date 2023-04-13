@@ -1,0 +1,71 @@
+.loginPageOutterBody {
+  .loginPageInnerBody {
+    .loginAndSignUpBtn {
+      width: 100%;
+      height: min-content;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      button {
+        margin: 0% 12.5%;
+        width: 75%;
+        height: 30px;
+      }
+    }
+    .loginFillingPage {
+      text-align: center;
+
+      form {
+        text-align: start;
+
+        display: grid;
+        label {
+          margin-top: 2%;
+        }
+        input {
+          width: 90%;
+          margin-left: 5%;
+          margin-right: 5%;
+          height: 30px;
+        }
+      }
+
+      .radioAndForgotPassword {
+        margin-top: 5%;
+        label {
+          float: left;
+        }
+        p {
+          float: right;
+        }
+      }
+      button {
+        margin-top: 5%;
+        width: 50%;
+        height: 30px;
+      }
+    }
+    .signUpFillingPage {
+      text-align: center;
+      form {
+        text-align: start;
+        display: grid;
+        label {
+          margin-top: 5%;
+        }
+        input {
+          width: 90%;
+          margin-left: 5%;
+          margin-right: 5%;
+          height: 30px;
+        }
+      }
+      button {
+        margin-top: 5%;
+        width: 50%;
+        height: 30px;
+      }
+    }
+  }
+}

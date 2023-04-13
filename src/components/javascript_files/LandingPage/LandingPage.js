@@ -6,17 +6,16 @@ import RestaurantsCards from "../RestaurantsCards";
 import Reviews from "../Reviews";
 import TopSection from "../TopSection";
 
-const LandingPage = ({ info }) => {
+const LandingPage = ({ info , selecterData}) => {
   const [data, setData] = useState("");
 
   const handleData = (dataFromChild) => {
     setData(dataFromChild);
     info(dataFromChild);
-    // console.log(dataFromChild);
   };
   return (
     <>
-      <TopSection />
+      <TopSection selecterData={selecterData} />
       <FoodSelectorCard />
       <OrderFood />
       <PartnerCard />
