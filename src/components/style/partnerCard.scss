@@ -7,37 +7,89 @@
     margin-left: 10%;
     margin-right: 10%;
     display: grid;
+
     grid-template-columns: 50% 50%;
+    @media (max-width: 860px) {
+      grid-template-columns: 100%;
+    }
     .deliveryCard {
       display: grid;
-      grid-template-columns: 50% 50%;
-      margin-right: 2%;
-      border: 2px solid black;
-      border-radius: 5%;
+      grid-template-columns: 60% 40%;
+      border-radius: 10px;
+      background-color: #f1f8ff;
+      text-align: start;
+      @media (max-width:860px) {
+        margin-left: 0%;
+        margin-top: 2%;
+      }
 
       .deliveryCardText {
-        // margin-top: 50%;
+        margin-left: 10%;
+        margin-top: 22%;
+        height: min-content;
+        width: 90%;
+        p {
+          margin-top: 2%;
+        }
+        button {
+          margin-top: 3%;
+          width: 50%;
+          height: 40px;
+          cursor: pointer;
+          border-radius: 5px;
+          color: white;
+          background-color: rgb(196, 20, 20);
+        }
+        button:hover {
+          transition: 1s;
+          background-color: red;
+        }
       }
       .deliveryCardImg {
         img {
-          width: 80%;
+          width: 100%;
           float: right;
         }
       }
     }
     .partnerCard {
       display: grid;
-      grid-template-columns: 50% 50%;
+      grid-template-columns: 60% 40%;
       margin-left: 2%;
-      border: 2px solid black;
-      border-radius: 5%;
+      border-radius: 10px;
+      background-color: #fff7f1;
+      text-align: start;
+      @media (max-width:860px) {
+        margin-left: 0%;
+        margin-top: 5%;
+      }
       .partnerCardText {
-        // margin-top: 50%;
+        margin-left: 10%;
+        margin-top: 22%;
+        height: min-content;
+        width: 90%;
+        p {
+          margin-top: 2%;
+        }
+        button {
+          margin-top: 3%;
+          width: 50%;
+          height: 40px;
+          cursor: pointer;
+          border-radius: 5px;
+          color: white;
+          background-color: rgb(196, 20, 20);
+        }
+        button:hover {
+          transition: 1s;
+          background-color: red;
+        }
       }
 
       .partnerCardImg {
         img {
-          width: 80%;
+          width: 100%;
+          height: 100%;
           float: right;
         }
       }
