@@ -15,14 +15,28 @@ export const InnerBody = styled.div`
 export const Card = styled.div`
   max-width: 100%;
   margin-top: 2%;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  @media (max-width: 860px) {
+    grid-template-columns: 33.3% 33.3% 33.3%;
+  }
+  @media (max-width: 550px) {
+    grid-template-columns: 50% 50%;
+  }
 `;
 
 export const Img = styled.img`
-  width: 80%;
+  width: 60%;
+  @media (max-width: 760px) {
+  }
 `;
 export const CardDiv = styled.div`
-  display: inline-block;
   justify-content: space-around;
   justify-content: space-between;
 `;
-export const H1Text = styled.h1``;
+export const H1Text = styled.h1`
+  color: #33373e;
+`;
+export const PText = styled.p`
+  color: gray;
+`;

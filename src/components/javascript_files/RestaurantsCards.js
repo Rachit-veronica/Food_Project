@@ -5,7 +5,9 @@ import {
   Card,
   Img,
   CardDiv,
+  PText,
   H1Text,
+  
 } from "../style/RestaurantsStyle";
 import img1 from "../img/restaurants/p1.png";
 import img2 from "../img/restaurants/p2.png";
@@ -61,11 +63,6 @@ const RestaurantsCards = ({ onData }) => {
       name: "Domino's",
       url: "/Order",
     },
-    {
-      img: img9,
-      name: "Domino's",
-      url: "/Order",
-    },
   ];
   const restaurantBtn = () => {
     const dataFromChild = "block";
@@ -76,13 +73,13 @@ const RestaurantsCards = ({ onData }) => {
       <OutterBody>
         <InnerBody>
           <H1Text>Popular restaurants in your city</H1Text>
-          <p>Check the best restaurants near you</p>
+          <PText>Check the best restaurants near you</PText>
           <Card>
             {restaurantCardData.map((data) => {
               return (
                 <>
                   <CardDiv>
-                    <Link to={data.url}>
+                    <Link to={data.url} id="CardId">
                       <Img src={data.img} onClick={restaurantBtn} />
                     </Link>
                   </CardDiv>

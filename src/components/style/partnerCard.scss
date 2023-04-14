@@ -18,7 +18,7 @@
       border-radius: 10px;
       background-color: #f1f8ff;
       text-align: start;
-      @media (max-width:860px) {
+      @media (max-width: 860px) {
         margin-left: 0%;
         margin-top: 2%;
       }
@@ -28,6 +28,10 @@
         margin-top: 22%;
         height: min-content;
         width: 90%;
+        height: 1px;
+        h1 {
+          color: #33373e;
+        }
         p {
           margin-top: 2%;
         }
@@ -59,7 +63,7 @@
       border-radius: 10px;
       background-color: #fff7f1;
       text-align: start;
-      @media (max-width:860px) {
+      @media (max-width: 860px) {
         margin-left: 0%;
         margin-top: 5%;
       }
@@ -68,6 +72,9 @@
         margin-top: 22%;
         height: min-content;
         width: 90%;
+        h1 {
+          color: #33373e;
+        }
         p {
           margin-top: 2%;
         }
