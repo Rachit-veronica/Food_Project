@@ -1,6 +1,8 @@
 import React from "react";
 import "../style/orderFood.scss";
 import orderPeopleImg from "../img/orderFoodImg.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAppStore, faGooglePlay } from "@fortawesome/free-brands-svg-icons";
 
 const OrderFood = () => {
   return (
@@ -14,18 +16,18 @@ const OrderFood = () => {
               in real time and much more.
             </p>
             <div className="orderFoodBtn">
-              <button>
-                <img src="#" />
+              <button  >
+                <FontAwesomeIcon id="downloadBtnicon" icon={faAppStore} />
                 <span>
                   <p>Download on the</p>
-                  <p>App Store</p>
+                  <h3>App Store</h3>
                 </span>
               </button>
-              <button>
-                <img src="#" />
+              <button id="downloadBtn">
+                <FontAwesomeIcon id="downloadBtnicon" icon={faGooglePlay} />
                 <span>
                   <p>Download on the</p>
-                  <p>Google Play</p>
+                  <h3>Google Play</h3>
                 </span>
               </button>
             </div>
