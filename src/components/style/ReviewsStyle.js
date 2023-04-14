@@ -14,12 +14,41 @@ export const ReviewInnerBody = styled.div`
 
 export const H1ReviewsText = styled.h1`
   margin-top: 5%;
+  color: #33373e;
 `;
 
 export const ReviewsCardBody = styled.div`
-margin-top: 5%;
-margin-bottom: 5%;
-display: grid;
-grid-template-columns: 80% 20%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  @media (max-width: 860px) {
+    grid-template-columns: 100%;
+  }
 `;
-export const CreateRating = styled.div``;
+export const CreateRating = styled.div`
+  border: 2px solid black;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border-radius: 0px 10px 10px 0px;
+  @media (max-width: 860px) {
+    margin-top: 5%;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 0px 0px 0px 0px;
+  }
+`;
+export const Button = styled.button`
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 50%;
+  height: 30px;
+  border-radius: 7px;
+  background-color: rgb(196, 20, 20);
+  color: white;
+  :hover {
+    transition: 1s;
+    background-color: red;
+  }
+`;

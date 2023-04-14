@@ -9,6 +9,7 @@ import {
   H1ReviewsText,
   ReviewsCardBody,
   CreateRating,
+  Button,
 } from "../style/ReviewsStyle";
 import PopUp from "./PopUp";
 import { FaStar } from "react-icons/fa";
@@ -143,7 +144,7 @@ const Reviews = () => {
                   onChange={handlingdata}
                   style={{ width: "90%", height: "70px" }}
                 />
-                <button type="submit">click here</button>
+                <Button type="submit">Submit</Button>
               </form>
             </CreateRating>
           </ReviewsCardBody>

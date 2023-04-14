@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   SwiperSlideOutterBody,
@@ -31,10 +31,30 @@ export default function App(props) {
     props.back(id);
     console.log(id);
   };
+
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenSizeStyle, setScereenSizeStyle] = useState("3");
+  const size = () => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  };
+
+  const indo = () => {
+    if (screenWidth <= 860) {
+      setScereenSizeStyle(2);
+    } else {
+    }
+  };
+  useEffect(() => {
+    size();
+    indo();
+  }, []);
+
   return (
     <>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={screenSizeStyle}
         spaceBetween={30}
         freeMode={true}
         pagination={{
@@ -42,7 +62,15 @@ export default function App(props) {
         }}
         modules={[FreeMode, Pagination]}
         className="mySwiper"
-        style={{ border: "2px solid black", position: "unset" }}
+        style={{
+          border: "1px solid #ccc",
+          boxShadow: " 0 0 5px rgba(0, 0, 0, 0.3)",
+          position: "unset",
+          borderRadius: "10px 0px 0px 10px",
+          ...(window.innerWidth <= 860 && {
+            borderRadius: "10px 10px 10px 10px",
+          }),
+        }}
       >
         {Object.keys(data).map((id, index) => {
           return (
