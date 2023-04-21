@@ -42,6 +42,8 @@ import {
   LogoText,
   TextP,
 } from "../style/FooterStyle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAppStore, faGooglePlay } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
@@ -125,14 +127,18 @@ const Footer = () => {
           </DownloadSelectionText>
           <DownloadBtn>
             <AppleStoreDownlaodBtn>
-              <AppleBtnLogo src="#" />
+              <AppleBtnLogo>
+                <FontAwesomeIcon id="downloadBtnicon" icon={faAppStore} />
+              </AppleBtnLogo>
               <AppleBtnText>
                 <AppleBtnP>Download on the</AppleBtnP>
                 <AppleBtnH1>App Store</AppleBtnH1>
               </AppleBtnText>
             </AppleStoreDownlaodBtn>
             <GooglePlayDownlaodBtn>
-              <GooleBtnLogo src="#" />
+              <GooleBtnLogo>
+                <FontAwesomeIcon id="GoogledownloadBtnicon" icon={faGooglePlay} />
+              </GooleBtnLogo>
               <GoogleBtnText>
                 <GoogleBtnP>Download on the</GoogleBtnP>
                 <GoogleBtnH1>Google Play</GoogleBtnH1>
