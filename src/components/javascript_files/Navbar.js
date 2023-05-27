@@ -103,7 +103,6 @@ const Navbar = ({ style, valueBack }) => {
                 </div>
                 <div className="line"></div>
                 <p>Cuisine</p>
-                <p id="back">Back to main demo</p>
               </div>
               <div className="rightSide">
                 <FontAwesomeIcon
