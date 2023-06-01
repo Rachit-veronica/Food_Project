@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
 const StarPrint = (props) => {
   console.log(props.data);
@@ -17,7 +18,13 @@ const StarPrint = (props) => {
     }
   }
 
-  return <>{stars}</>;
+
+
+  return (
+    <>
+      <h1 id="starsSize">{stars}</h1>
+    </>
+  );
 };
 
 export default StarPrint;

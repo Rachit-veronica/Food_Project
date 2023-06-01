@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import {
   Button,
@@ -6,17 +6,18 @@ import {
   ButtonInnerBody,
   ButtonDiv,
 } from "../../style/LandingPageStyle/crudOprationStyle";
-import database from "../../Backend/Firebase";
 
 import { CreateRating } from "../../style/ReviewsStyle";
 import { FaStar } from "react-icons/fa";
 import { Container, Radio, Rating } from "../../style/StarRatingStyle";
-const CrudOpration = (props) => {
-  const fatchData = props.data;
-  console.log(fatchData);
 
-  const path = `reviews/${fatchData}`; // Invalid path
-  const encodedPath = encodeURIComponent(path);
+import { getDatabase, ref, child, remove } from "firebase/database";
+import db from "../../Backend/Firebase";
+
+const CrudOpration = (props) => {
+  const id = props.data;
+  console.log(id);
+  const dbName = props.dbname;
 
   const [addInfo, setAddInfo] = useState({
     ratingNumber: "",
@@ -33,16 +34,6 @@ const CrudOpration = (props) => {
 
   const addText = async (Event) => {
     Event.preventDefault();
-    const { ratingNumber, ratingText } = addInfo;
-    if (ratingNumber && ratingText) {
-      window.confirm("comfirm update ??");
-      database.child(encodedPath).set(addInfo, (err) => {
-        console.warn("error found", err);
-        alert("update entered seccess");
-      });
-    } else {
-      alert("enter all data filed ");
-    }
   };
   const handlingdata = (e) => {
     const num = e.target.name;
@@ -50,15 +41,19 @@ const CrudOpration = (props) => {
     setAddInfo({ ...addInfo, [num]: value });
   };
 
-  const deleteBtnClicked = (fatchData) => {
+  const deleteBtnClicked = () => {
+    // const [deleting, setDeleting] = useState(false);
+
     if (window.confirm("confirm ??")) {
-      database.child(fatchData).remove((err) => {
-        if (err) {
-          console.log("deleting error", err);
-        } else {
-          console.log("successfuly data deleted");
-        }
-      });
+      const dataRef = ref(db, `${dbName}/${id}`);
+      console.log(dataRef);
+      remove(dataRef)
+        .then(() => {
+          console.log("Data deleted successfully");
+        })
+        .catch((error) => {
+          console.error("Error deleting data:", error);
+        });
     }
   };
   return (
@@ -72,7 +67,7 @@ const CrudOpration = (props) => {
             UPDATE
           </Button>
           <Button
-            onClick={() => deleteBtnClicked(fatchData)}
+            onClick={deleteBtnClicked}
             style={{ display: displayStyleBtn }}
           >
             DELETE

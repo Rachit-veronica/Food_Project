@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "../../../style/FoodPageStyle/DominosStyle/DominosTopSectionStyle.scss";
+import { getDatabase, ref, set, child, onValue, push } from "firebase/database";
+import db from "../../../Backend/Firebase";
+import { Link, Outlet, useParams } from "react-router-dom";
 
-import database from "../../../Backend/Firebase";
-import SelectedPizzaData from "./SelectedPizzaData";
-import SelectedSidesData from "./SelectedSidesData";
-import { Link } from "react-router-dom";
-
-const DominosTopSection = () => {
+const DominosTopSection = ({ styleEDitData, styleMenuData }) => {
   const [title, setTitle] = useState("Pizza");
-
-  const [getData, setGetData] = useState([]);
-
   const [sendData, setSendData] = useState({
     name: "",
     about: "",
@@ -19,6 +14,12 @@ const DominosTopSection = () => {
   });
   const [insertBar, setInsertBar] = useState("none");
   const [menuBar, setMenuBar] = useState("none");
+  const [fileStyle, setFileStyle] = useState({
+    pizzaFileStyle: "block",
+    sidesFileStyle: "none",
+    dessertFileStyle: "none",
+    drinksFileStyle: "none",
+  });
   const [pizzaFileStyle, setPizzaFileStyle] = useState("block");
   const [sidesFileStyle, setsidesFileStyle] = useState("none");
   const [EditBtn, setEditBtn] = useState("Edit");
@@ -27,53 +28,41 @@ const DominosTopSection = () => {
     const { name, value } = e.target;
     setSendData({ ...sendData, [name]: value });
   };
-
-  const dbGetData = async () => {
-    try {
-      await database.child("dominos").on("value", (snapshot) => {
-        if (snapshot.val() !== null) {
-          const value = Object.values({ ...snapshot.val() });
-          setGetData(value.reverse());
-          console.log(value);
-        } else {
-          setGetData({});
-        }
-      });
-    } catch (error) {
-      console.error("Something bad happened");
-      console.error(error);
-    }
-  };
-
   const sendDataFunction = async (Event) => {
     Event.preventDefault();
     const { name, about, img, price } = sendData;
     try {
       if (name && about && img && price) {
-        database.child("dominos").push(sendData, (err) => {
-          console.warn("error found", err);
-          alert("data entered seccess");
-          setSendData({
-            ...sendData,
-            name: "",
-            about: "",
-            img: null,
-            price: "",
+        const dataRef = ref(db, `dominos/${title}`);
+        const database = getDatabase();
+
+        const newEntryRef = push(dataRef); // Generate a unique ID for the new entry
+
+        // const childRef = child(newEntryRef, "child-node"); // Specify the child node
+
+        set(newEntryRef, sendData)
+          .then(() => {
+            // Data sent successfully
+            alert("data entered seccess");
+            setSendData({
+              ...sendData,
+              name: "",
+              about: "",
+              img: null,
+              price: "",
+            });
+            setInsertBar("none");
+          })
+          .catch((error) => {
+            // Handle error
+            alert("error");
           });
-          setInsertBar("none");
-        });
-      } else {
-        alert("enter all data filed ");
       }
     } catch (error) {
       console.error("Something bad happened");
       console.error(error);
     }
   };
-
-  useEffect(() => {
-    dbGetData();
-  }, []);
 
   function handleImageUpload(event) {
     const file = event.target.files[0];
@@ -104,28 +93,32 @@ const DominosTopSection = () => {
     if (menuBar == "none") {
       setMenuBar("block");
       setEditBtn("Back");
+      styleMenuData("block");
+      styleEDitData("Back");
     } else {
       setMenuBar("none");
       setEditBtn("Edit");
+      styleMenuData("none");
+      styleEDitData("Edit");
     }
   };
   const pizzaBtn = (Event) => {
     Event.preventDefault();
-    if (pizzaFileStyle == "block") {
-      setsidesFileStyle("none");
-    } else {
-      setPizzaFileStyle("block");
-      setTitle(" Pizza");
-      setsidesFileStyle("none");
-    }
+    setTitle("Pizza");
   };
   const sidesBtn = (Event) => {
     Event.preventDefault();
-    if (pizzaFileStyle == "block") {
-      setPizzaFileStyle("none");
-      setsidesFileStyle("block");
-      setTitle(" Sides");
-    }
+    setTitle("Sides");
+  };
+
+  const drinksBtn = (Event) => {
+    Event.preventDefault();
+    setTitle("Drinks");
+  };
+
+  const dessertBtn = (Event) => {
+    Event.preventDefault();
+    setTitle("Dessert");
   };
 
   return (
@@ -138,7 +131,7 @@ const DominosTopSection = () => {
                 <li>
                   <p>
                     <img src="#" />
-                    Home >
+                    <Link to="/" style={{textDecoration: 'none',color:"white"}}> Home > </Link>
                   </p>
                 </li>
                 <li>{title}</li>
@@ -155,10 +148,26 @@ const DominosTopSection = () => {
               <li>
                 <img src="#" />
               </li>
-              <li onClick={pizzaBtn}>Pizza</li>
-              <li onClick={sidesBtn}>Sides</li>
-              <li>Drinks</li>
-              <li>Dessert</li>
+              <li onClick={pizzaBtn}>
+                <Link to={"Pizza"} id="DominosTopSectionA">
+                  Pizza
+                </Link>
+              </li>
+              <li onClick={sidesBtn}>
+                <Link to={"Sides"} id="DominosTopSectionA">
+                  Sides
+                </Link>
+              </li>
+              <li onClick={drinksBtn}>
+                <Link to={"Drinks"} id="DominosTopSectionA">
+                  Drinks
+                </Link>
+              </li>
+              <li onClick={dessertBtn}>
+                <Link to={"Dessert"} id="DominosTopSectionA">
+                  Dessert
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -211,15 +220,20 @@ const DominosTopSection = () => {
             </form>
           </div>
           <div className="SelectedFileDiv">
-            <SelectedPizzaData
-              data={getData}
+            {/* <SelectedPizzaData
+              dbName={databaseName}
               style={pizzaFileStyle}
               menuStyle={menuBar}
             />
-            <SelectedSidesData style={sidesFileStyle} />
+            <SelectedSidesData
+              style={sidesFileStyle}
+              dbName={databaseName}
+              menuStyle={menuBar}
+            /> */}
           </div>
         </div>
       </div>
+      <Outlet />
     </>
   );
 };

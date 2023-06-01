@@ -7,7 +7,6 @@ import {
   CardDiv,
   PText,
   H1Text,
-  
 } from "../style/RestaurantsStyle";
 import img1 from "../img/restaurants/p1.png";
 import img2 from "../img/restaurants/p2.png";
@@ -17,8 +16,6 @@ import img5 from "../img/restaurants/p5.png";
 import img6 from "../img/restaurants/p6.png";
 import img7 from "../img/restaurants/p7.png";
 import img8 from "../img/restaurants/p8.png";
-import img9 from "../img/restaurants/p9.png";
-import Dominos from "./FoodOrderPage/Dominos";
 import { Link } from "react-router-dom";
 
 const RestaurantsCards = ({ onData }) => {
@@ -46,22 +43,22 @@ const RestaurantsCards = ({ onData }) => {
     {
       img: img5,
       name: "Domino's",
-      url: "/Order",
+      url: "/Order/Pizza",
     },
     {
       img: img6,
       name: "Domino's",
-      url: "/Order",
+      url: "/Order/Pizza",
     },
     {
       img: img7,
       name: "Domino's",
-      url: "/Order",
+      url: "/Order/Pizza",
     },
     {
       img: img8,
       name: "Domino's",
-      url: "/Order",
+      url: "/Order/Pizza",
     },
   ];
   const restaurantBtn = () => {

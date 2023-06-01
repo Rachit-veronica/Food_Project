@@ -1,38 +1,20 @@
-// import React from "react";
-
-// const SelectedSidesData = (props) => {
-//   const style = props.style;
-//   const data = props.data;
-//   console.log(data);
-//   return (
-//     <div style={{ display: style }}>
-//       SelectedSidesData
-//       {Object.keys(data).map((id, index) => {
-//         <h1>{data[id].name}</h1>;
-//       })}
-//     </div>
-//   );
-// };
-
-// export default SelectedSidesData;
-
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faBars } from "@fortawesome/free-solid-svg-icons";
 import "../../../style/FoodPageStyle/DominosStyle/DominosPizzaStyle.scss";
 import Popup from "../../PopUp";
 import CrudOpration from "../../LandingPage/CrudOpration";
-
-import { ref, onValue } from "firebase/database";
+import { getDatabase, ref, set, child, onValue, push } from "firebase/database";
 import db from "../../../Backend/Firebase";
 import Loading from "../../Loading";
 
-const SelectedSidesData = (props) => {
-  const [dbName, setDbName] = useState("");
+const SelectedDrinksData = (props) => {
   const style = props.style;
   const menuStyle = props.menuStyle;
+
   const [showPopup, setShowPopup] = useState(false);
   const [data, setGetData] = useState([]);
+  const [dbName, setDbName] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const togglePopup = () => {
@@ -46,7 +28,7 @@ const SelectedSidesData = (props) => {
     try {
       setIsLoading(true);
 
-      const dataRef = ref(db, "dominos/" + "Sides");
+      const dataRef = ref(db, "dominos/" + "Drinks");
       onValue(dataRef, (snapshot) => {
         const data = snapshot.val();
         const reversedObject = Object.fromEntries(
@@ -54,7 +36,8 @@ const SelectedSidesData = (props) => {
         );
         console.log(reversedObject);
         setGetData(reversedObject);
-        setDbName("dominos/Sides");
+        console.warn("Drinks feching data" + reversedObject);
+        setDbName("dominos/Drinks");
         setIsLoading(false);
       });
     } catch (error) {
@@ -62,6 +45,7 @@ const SelectedSidesData = (props) => {
       console.error(error);
     }
   };
+
   useEffect(() => {
     dbGetData();
   }, []);
@@ -124,4 +108,4 @@ const SelectedSidesData = (props) => {
   );
 };
 
-export default SelectedSidesData;
+export default SelectedDrinksData;
