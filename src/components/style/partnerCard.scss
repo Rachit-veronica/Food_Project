@@ -29,6 +29,13 @@
         height: min-content;
         width: 90%;
         height: 1px;
+
+        @media (max-width: 560px) {
+          margin-top: 10%;
+          h1 {
+            font-size: 25px;
+          }
+        }
         h1 {
           color: #33373e;
         }
@@ -72,6 +79,13 @@
         margin-top: 22%;
         height: min-content;
         width: 90%;
+
+        @media (max-width: 560px) {
+          margin-top: 10%;
+          h1 {
+            font-size: 25px;
+          }
+        }
         h1 {
           color: #33373e;
         }

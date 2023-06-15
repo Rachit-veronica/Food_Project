@@ -13,6 +13,7 @@ import {
 import LoginPage from "./LoginPage";
 
 import logo from "../img/logo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ style, valueBack }) => {
   const [responseData, setResponseData] = useState("");
@@ -87,7 +88,9 @@ const Navbar = ({ style, valueBack }) => {
       <div className="navbarOutterBody">
         <div className="navbarInnerBody">
           <div className="upperBody">
-            <img src={logo} />
+            <Link to="/">
+              <img src={logo} />
+            </Link>
             <div className="responviseDiv" style={{ display: responseData }}>
               <div className="liftSide">
                 <div className="navbarLocation">
@@ -101,8 +104,8 @@ const Navbar = ({ style, valueBack }) => {
                     </select>
                   </div>
                 </div>
-                <div className="line"></div>
-                <p>Cuisine</p>
+                {/* <div className="line"></div>
+                <p>Cuisine</p> */}
               </div>
               <div className="rightSide">
                 <FontAwesomeIcon
@@ -148,7 +151,6 @@ const Navbar = ({ style, valueBack }) => {
                 <option value="Bangalore">Bangalore</option>
               </select>
             </div>
-            <p>Cuisine</p>
           </div>
           <Search style={data} />
           {showPopup && (

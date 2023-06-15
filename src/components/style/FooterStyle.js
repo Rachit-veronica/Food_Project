@@ -5,6 +5,12 @@ export const FooterOutterBody = styled.div`
   height: min-content;
   margin-top: 5%;
   background-color: #2b3445;
+  @media (max-width: 520px) {
+    margin-top: 10%;
+  }
+  @media (max-width: 860px) {
+    margin-top: 15%;
+  }
 `;
 export const FooterInnerBody = styled.div`
   width: 80%;
@@ -186,10 +192,12 @@ export const DownloadBtn = styled.div`
 export const AppleStoreDownlaodBtn = styled.button`
   margin-top: 5%;
   width: 90%;
-  border-radius: 0px;
+  /* border-radius: 0px; */
+  border-radius: 15px;
+  cursor: pointer;
   :hover {
-    border-radius: 15px;
-    transition: 1s;
+    /* border-radius: 15px; */
+    /* transition: 1s; */
   }
   display: grid;
   grid-template-columns: 20% 80%;
@@ -217,7 +225,9 @@ export const AppleBtnText = styled.div`
 export const GooglePlayDownlaodBtn = styled.button`
   margin-top: 5%;
   width: 90%;
-  border-radius: 0px;
+  /* border-radius: 0px; */
+  border-radius: 15px;
+  cursor: pointer;
   @media (max-width: 860px) {
     width: 94%;
     margin-left: 3%;
@@ -225,7 +235,7 @@ export const GooglePlayDownlaodBtn = styled.button`
     border-radius: 0px;
   }
   :hover {
-    border-radius: 15px;
+    /* border-radius: 15px; */
     transition: 1s;
   }
   display: grid;

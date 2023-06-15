@@ -1,7 +1,7 @@
 .navbarOutterBody {
   width: 100%;
-  height: min-contents;
-  margin-top: 2%;
+  height: min-content;
+  margin-top: 0%;
   .navbarInnerBody {
     max-width: 80%;
     margin-left: 10%;
@@ -9,9 +9,20 @@
     .upperBody {
       display: grid;
       grid-template-columns: 10% 90%;
+      margin-top: 2%;
       img {
         width: 100%;
         height: 100%;
+      }
+      @media (max-width: 860px) {
+        img {
+          width: 150%;
+        }
+      }
+      @media (max-width: 550px) {
+        img {
+          width: 200%;
+        }
       }
     }
     .responviseDiv {
@@ -23,6 +34,7 @@
 
       .navbarLocation {
         margin-left: 2%;
+
         // width: fit-content;
         .imgText {
           display: inline-flex;
@@ -31,6 +43,9 @@
         #icon {
           margin-right: 2%;
           width: 100%;
+        }
+        select {
+          max-width: 150%;
         }
       }
 
@@ -79,6 +94,21 @@
         height: 40px;
         border-radius: 20px;
         border-color: black;
+      }
+    }
+
+    .response3lineClickDiv {
+      .imgText {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        text-align: center;
+
+        select {
+          margin-left: 2%;
+          width: 94%;
+          height: 30px;
+          text-align: center;
+        }
       }
     }
   }

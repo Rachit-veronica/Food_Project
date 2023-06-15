@@ -144,21 +144,21 @@ const LoginPage = () => {
             <form>
               <label>Full Name</label>
               <input
-                type="text"
+                type="name"
                 name="name"
                 placeholder="JOhn Doe"
                 value={signUp.name}
                 onChange={handleSignUpChange}
-                autoComplete="off"
+                autoComplete="on"
               />
               <label>Email</label>
               <input
-                type="Email"
+                type="email"
                 name="email"
                 placeholder="johndoe@example.com"
                 value={signUp.email}
                 onChange={handleSignUpChange}
-                autoComplete="off"
+                autoComplete="on"
               />
               <label>Password</label>
               <input

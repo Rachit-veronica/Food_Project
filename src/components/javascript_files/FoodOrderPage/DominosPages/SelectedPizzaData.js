@@ -17,6 +17,8 @@ const SelectedPizzaData = (props) => {
   const [dbName, setDbName] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
@@ -48,6 +50,20 @@ const SelectedPizzaData = (props) => {
 
   useEffect(() => {
     dbGetData();
+  }, []);
+
+  // -------------------
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (

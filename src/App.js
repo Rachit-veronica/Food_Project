@@ -3,7 +3,6 @@ import Navbar from "./components/javascript_files/Navbar";
 import LandingPage from "./components/javascript_files/LandingPage/LandingPage";
 import Footer from "./components/javascript_files/Footer";
 import { Routes, Route } from "react-router-dom";
-import Dominos from "./components/javascript_files/FoodOrderPage/Dominos";
 import Error from "./components/javascript_files/Error";
 import { useState } from "react";
 import SelectedPizzaData from "./components/javascript_files/FoodOrderPage/DominosPages/SelectedPizzaData";

@@ -3,6 +3,9 @@ import "../../../style/FoodPageStyle/DominosStyle/DominosTopSectionStyle.scss";
 import { getDatabase, ref, set, child, onValue, push } from "firebase/database";
 import db from "../../../Backend/Firebase";
 import { Link, Outlet, useParams } from "react-router-dom";
+import logo from "../../../img/dominos/logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 const DominosTopSection = ({ styleEDitData, styleMenuData }) => {
   const [title, setTitle] = useState("Pizza");
@@ -130,11 +133,21 @@ const DominosTopSection = ({ styleEDitData, styleMenuData }) => {
               <ul>
                 <li>
                   <p>
-                    <img src="#" />
-                    <Link to="/" style={{textDecoration: 'none',color:"white"}}> Home > </Link>
+                    <Link
+                      to="/"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faHouse}
+                        style={{ marginRight: "6px", marginBottom: "2px" }}
+                      />
+                      Home >
+                    </Link>
                   </p>
                 </li>
-                <li>{title}</li>
+                <li style={{ marginLeft: "4px", cursor: "pointer" }}>
+                  {title}
+                </li>
               </ul>
             </div>
             <div className="dominorsTitle">
@@ -144,10 +157,8 @@ const DominosTopSection = ({ styleEDitData, styleMenuData }) => {
         </div>
         <div className="DominosUpperAndSearchBar">
           <div className="DominosUpperAndSearchBarInnerBody">
+            <img src={logo} />
             <ul>
-              <li>
-                <img src="#" />
-              </li>
               <li onClick={pizzaBtn}>
                 <Link to={"Pizza"} id="DominosTopSectionA">
                   Pizza

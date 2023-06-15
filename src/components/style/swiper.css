@@ -42,7 +42,17 @@ body {
   .swiper-slide {
     height: 150px;
   }
-  #starsSize{
-  font-size: 200%;
+  #starsSize {
+    font-size: 200%;
+  }
+}
+@media (max-width: 550px) {
+  #starsSize {
+    font-size: 150%;
+  }
+}
+@media (max-width: 430px) {
+  #starsSize {
+    font-size: 120%;
   }
 }

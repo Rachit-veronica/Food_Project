@@ -1,7 +1,7 @@
 .navAndTitleOutterBodyMainDiv {
   .navAndTitleOutterBody {
     width: 100%;
-    height: 150px;
+    height: 250px;
     margin-top: 2%;
     background-image: url("../../../img/FoodOrderImg/Dominos/navbarBg.jpg");
     background-position: 100%;
@@ -13,11 +13,24 @@
       margin-right: 10%;
       .dominorsNavbar {
         ul li {
+          margin-top: 6%;
           display: inline-flex;
           color: white;
+          @media (max-width: 700px) {
+            margin-top: 15%;
+          }
+          @media (max-width: 520px) {
+            margin-top: 25%;
+          }
+          p {
+            img {
+              color: white;
+            }
+          }
         }
       }
       .dominorsTitle {
+        margin-top: 1%;
         color: white;
       }
     }
@@ -27,20 +40,56 @@
     margin-left: 10%;
     margin-right: 10%;
     margin-top: -2%;
+    @media (max-width: 860px) {
+      max-width: 90%;
+      margin-left: 5%;
+      margin-right: 5%;
+      margin-top: -5%;
+    }
     .DominosUpperAndSearchBarInnerBody {
       border: 1px solid black;
       background-color: white;
       color: black;
-
-      ul li {
+      display: grid;
+      grid-template-columns: 10% 90%;
+      @media (max-width: 860px) {
+        grid-template-columns: 15% 85%;
+      }
+      @media (max-width: 520px) {
+        grid-template-columns: 30% 70%;
+      }
+      img {
+        width: 100%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+      }
+      ul {
         display: inline-flex;
-        justify-content: space-around;
-        justify-content: space-between;
-        margin: 2%;
-        #DominosTopSectionA{
-          color: black;
-          font-weight:bold;
-          
+        margin-top: 3%;
+        height: min-content;
+        margin-bottom: 2%;
+        @media (max-width: 860px) {
+          margin-top: 4%;
+        }
+        @media (max-width: 520px) {
+          margin-top: 11%;
+        }
+        li {
+          display: inline-flex;
+          margin: 0% 2% 0% 2%;
+          @media (max-width: 860px) {
+            margin: 0% 5% 0% 5%;
+          }
+          @media (max-width: 520px) {
+            margin: 0% 3% 0% 3%;
+          }
+          #DominosTopSectionA {
+            color: black;
+            font-weight: bold;
+          }
+          #DominosTopSectionA:hover{
+            color: red;
+          }
         }
       }
     }
@@ -55,6 +104,12 @@
   }
   .DominosSeletedItemBody {
     margin-top: 2%;
+    h1 {
+      @media (max-width: 860px) {
+        margin-top: 7%;
+        margin-bottom: 3%;
+      }
+    }
     .insertAndEditBtn {
       text-align: end;
       width: 80%;
@@ -64,6 +119,11 @@
         width: 10%;
         margin: 0% 2% 0% 2%;
         height: 30px;
+        @media (max-width: 860px) {
+          width: 20%;
+          margin-top: 5%;
+          margin-bottom: 5%;
+        }
       }
     }
     .sendData {

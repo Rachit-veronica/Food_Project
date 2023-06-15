@@ -119,7 +119,7 @@ import "../style/swiper.css";
 import { FreeMode, Pagination } from "swiper";
 import styled from "styled-components";
 
-export default function App(props) {
+export default function   App(props) {
   const data = props.data;
   const reversedObject = Object.fromEntries(Object.entries(data).reverse());
   console.warn(window.innerWidth);
