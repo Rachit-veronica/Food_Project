@@ -9,6 +9,8 @@ const Search = (props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
+  const [searchBtnBgStyle, setSearchBtnBgStyle] = useState("");
+
   const searchinfo = [
     { name: "pizza", url: "/Order/Pizza" },
     { name: "sides", url: "/Order/Sides" },
@@ -63,9 +65,22 @@ const Search = (props) => {
       alert("Please Enter The Value");
     } else {
       if (filteredUsers.length > 0) {
+        setSearchBtnBgStyle("green");
         navigate(filteredUsers[0].url);
+        setTimeout(() => {
+          setSearchBtnBgStyle(""); // remove search bg color
+          setSearchQuery(""); // for remove value of search
+          props.styleInfo("none"); // for remove search bar
+        }, 500);
       } else {
-        alert("No results found");
+        // alert("No results found");
+        console.warn("No result Found");
+        setSearchBtnBgStyle("#DC3535");
+        setTimeout(() => {
+          setSearchBtnBgStyle(""); // remove search bg color
+          alert("No results found"); // alert when data is not found
+          setSearchQuery(""); // for remove value of search
+        }, 500);
       }
     }
   };
@@ -79,6 +94,7 @@ const Search = (props) => {
             placeholder="Search..."
             value={searchQuery}
             onChange={handleSearchQueryChange}
+            style={{ backgroundColor: searchBtnBgStyle }}
           />
           <button onClick={searchBtn}>
             <FontAwesomeIcon id="icon" icon={faMagnifyingGlass} />

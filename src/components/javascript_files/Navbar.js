@@ -83,6 +83,11 @@ const Navbar = ({ style, valueBack }) => {
   useEffect(() => {
     valueBack(selectedValue);
   }, []);
+
+  const testFucntion = (data) => {
+    console.log(data)
+    setdata(data)
+  };
   return (
     <>
       <div className="navbarOutterBody">
@@ -152,7 +157,7 @@ const Navbar = ({ style, valueBack }) => {
               </select>
             </div>
           </div>
-          <Search style={data} />
+          <Search style={data} styleInfo={testFucntion} />
           {showPopup && (
             <PopUp
               content=<LoginPage />

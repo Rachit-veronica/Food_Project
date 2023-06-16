@@ -27,20 +27,6 @@ const LoginPage = () => {
     setSignUp({ ...signUp, [name]: value });
   };
 
-  // const addText = async (Event) => {
-  //   Event.preventDefault();
-  //   const { username, password } = username;
-  //   if (username && password) {
-  //     database.child("login").push(username, (err) => {
-  //       console.warn("error found", err);
-  //       alert("infomation send seccess");
-  //       setUsername({ ...username, username: "", password: "" });
-  //     });
-  //   } else {
-  //     alert("enter all data filed ");
-  //   }
-  // };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     if (username.username && username.password) {
