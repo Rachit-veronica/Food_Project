@@ -6,38 +6,39 @@ import cards4 from "../img/cards4.jpg";
 import cards5 from "../img/cards5.jpg";
 import cards6 from "../img/cards6.jpg";
 import "../style/foodSelectorCard.scss";
+import { Link } from "react-router-dom";
 
 const FoodSelectorCard = () => {
   const data = [
     {
       name: "Burgers & Fries",
       img: `${cards1}`,
-      url: "#",
+      url: "/Order/Pizza",
     },
     {
       name: "Noodles",
       img: `${cards2}`,
-      url: "#",
+      url: "/Order/Sides",
     },
     {
       name: "Sushi & Rolls",
       img: `${cards3}`,
-      url: "#",
+      url: "/Order/Sides",
     },
     {
       name: "Pizza & Pasta",
       img: `${cards4}`,
-      url: "#",
+      url: "/Order/Pizza",
     },
     {
       name: "Coffee & Desserts",
       img: `${cards5}`,
-      url: "#",
+      url: "/Order/Dessert",
     },
     {
       name: "Healthy & Food",
       img: `${cards6}`,
-      url: "#",
+      url: "/Order/Drinks",
     },
   ];
   return (
@@ -53,9 +54,14 @@ const FoodSelectorCard = () => {
                   <>
                     <a>
                       <div className="foodCardsItem">
-                      <div className="responvisefoodCardsItem">
-                        <img src={item.img} />
-                        <h2>{item.name}</h2>
+                        <div className="responvisefoodCardsItem">
+                          <img src={item.img} />
+                          <Link
+                            to={item.url}
+                            style={{ textDecoration: "none" }}
+                          >
+                            <h2>{item.name}</h2>
+                          </Link>
                         </div>
                       </div>
                     </a>

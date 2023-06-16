@@ -66,6 +66,25 @@ const SelectedPizzaData = (props) => {
     };
   }, []);
 
+  // --------------------error in color changement -----------
+
+  // const [sizebtnWorking, setSizeBtnWorking] = useState({
+  //   smallBtnStyle: "",
+  //   mediumBtnStyle: "",
+  //   largeBtnStyle: "",
+  // });
+  // const smallBtn = (e) => {
+  //   e.preventDefault();
+  //   setSizeBtnWorking({ ...sizebtnWorking, smallBtnStyle: "red" });
+  // };
+  // const mediumBtn = (e) => {
+  //   e.preventDefault();
+  // };
+
+  // const largeBtn = (e) => {
+  //   e.preventDefault();
+  // };
+
   return (
     <>
       <div>
@@ -97,9 +116,27 @@ const SelectedPizzaData = (props) => {
                         <h1>{data[id].name}</h1>
                         <p>{data[id].about}</p>
                         <div className="itemSize">
-                          <button name="size">Small</button>
-                          <button name="size">Medium</button>
-                          <button name="size">Large</button>
+                          <button
+                            name="size"
+                            // style={{ color: sizebtnWorking.smallBtnStyle }}
+                            // onClick={smallBtn}
+                          >
+                            Small
+                          </button>
+                          <button
+                            name="size"
+                            // style={{ color: sizebtnWorking.mediumBtnStyle }}
+                            // onClick={mediumBtn}
+                          >
+                            Medium
+                          </button>
+                          <button
+                            name="size"
+                            // style={{ color: sizebtnWorking.largeBtnStyle }}
+                            // onClick={largeBtn}
+                          >
+                            Large
+                          </button>
                         </div>
                         <div className="itemHight">
                           <button name="itemHight">Standard</button>

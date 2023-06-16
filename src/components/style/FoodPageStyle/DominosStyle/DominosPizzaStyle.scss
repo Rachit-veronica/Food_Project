@@ -62,6 +62,10 @@
           margin: 0% 2% 0% 2%;
           cursor: pointer;
         }
+        :hover {
+          background-color: black;
+          color: white;
+        }
       }
       .itemHight {
         margin-top: 2%;
@@ -72,6 +76,10 @@
           height: 22px;
           margin: 0% 2% 0% 2%;
           cursor: pointer;
+        }
+        :hover {
+          background-color: black;
+          color: white;
         }
       }
       .itemPriceAndAddBtn {
@@ -99,9 +107,8 @@
     }
   }
 }
-.dominosSeletedItemData:hover{
+.dominosSeletedItemData:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
 }
 @media (max-width: 860px) {
   .dominosSeletedItemDataBody {

@@ -27,6 +27,11 @@ export const FooterInnerBody = styled.div`
     grid-template-columns: 47.5% 47.5%;
     grid-gap: 0%;
   }
+  @media (max-width: 520px) {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 `;
 export const FooterLogo = styled.div`
   margin-top: 20%;
@@ -216,7 +221,14 @@ export const AppleBtnLogo = styled.div`
   }
 `;
 export const AppleBtnP = styled.p``;
-export const AppleBtnH1 = styled.h2``;
+export const AppleBtnH1 = styled.h2`
+  @media (max-width: 520px) {
+    font-size: 18px;
+  }
+  @media (max-width: 1268px) {
+    font-size: 18px;
+  }
+`;
 export const AppleBtnText = styled.div`
   width: fit-content;
   margin-left: 10%;
@@ -229,6 +241,12 @@ export const GooglePlayDownlaodBtn = styled.button`
   border-radius: 15px;
   cursor: pointer;
   @media (max-width: 860px) {
+    width: 94%;
+    margin-left: 3%;
+    margin-right: 3%;
+    border-radius: 0px;
+  }
+  @media (max-width: 520px) {
     width: 94%;
     margin-left: 3%;
     margin-right: 3%;
@@ -251,7 +269,14 @@ export const GooleBtnLogo = styled.div`
   }
 `;
 export const GoogleBtnP = styled.p``;
-export const GoogleBtnH1 = styled.h2``;
+export const GoogleBtnH1 = styled.h2`
+  @media (max-width: 520px) {
+    font-size: 18px;
+  }
+  @media (max-width: 1268px) {
+    font-size: 18px;
+  }
+`;
 export const GoogleBtnText = styled.div`
   width: fit-content;
   margin-left: 10%;
