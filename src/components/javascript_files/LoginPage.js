@@ -44,21 +44,25 @@ const LoginPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (username.username && username.password) {
-      const arr = Object.values(getData);
+      if (username.username.includes("@") && username.username.includes(".")) {
+        const arr = Object.values(getData);
 
-      // ------------ login condition check ---------------
+        // ------------ login condition check ---------------
 
-      const filterConditionCheck = arr.filter(
-        (data) =>
-          data.email == username.username && data.password == username.password
-      );
-
-      if (filterConditionCheck.length > 0) {
-        alert(`Successful login, Hello ${filterConditionCheck[0].name}`);
+        const filterConditionCheck = arr.filter(
+          (data) =>
+            data.email == username.username &&
+            data.password == username.password
+        );
+        if (filterConditionCheck.length > 0) {
+          alert(`Successful login, Hello ${filterConditionCheck[0].name}`);
+        } else {
+          alert("Invalid login, please SIGNUP");
+          setLoginBtnStyle("none");
+          setSignUpFillingPage("block");
+        }
       } else {
-        alert("Invalid login, please SIGNUP");
-        setLoginBtnStyle("none");
-        setSignUpFillingPage("block");
+        alert("Please Enter Valid Email Id");
       }
     } else {
       alert("fill all the data ");

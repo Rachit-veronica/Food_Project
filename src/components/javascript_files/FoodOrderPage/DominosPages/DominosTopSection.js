@@ -226,7 +226,7 @@ const DominosTopSection = ({ styleEDitData, styleMenuData }) => {
                   />
                 </span>
               </div>
-              <button onClick={formCencelbtn}>Cencel</button>
+              <button onClick={formCencelbtn}>Cancel</button>
               <button onClick={sendDataFunction}>Submit</button>
             </form>
           </div>

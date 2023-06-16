@@ -55,11 +55,11 @@ const FoodSelectorCard = () => {
                     <a>
                       <div className="foodCardsItem">
                         <div className="responvisefoodCardsItem">
-                          <img src={item.img} />
                           <Link
                             to={item.url}
                             style={{ textDecoration: "none" }}
                           >
+                            <img src={item.img} />
                             <h2>{item.name}</h2>
                           </Link>
                         </div>
