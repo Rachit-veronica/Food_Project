@@ -231,16 +231,6 @@ const DominosTopSection = ({ styleEDitData, styleMenuData }) => {
             </form>
           </div>
           <div className="SelectedFileDiv">
-            {/* <SelectedPizzaData
-              dbName={databaseName}
-              style={pizzaFileStyle}
-              menuStyle={menuBar}
-            />
-            <SelectedSidesData
-              style={sidesFileStyle}
-              dbName={databaseName}
-              menuStyle={menuBar}
-            /> */}
           </div>
         </div>
       </div>

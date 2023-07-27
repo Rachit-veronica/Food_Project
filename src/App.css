@@ -29,6 +29,9 @@
   height: 100%;
   object-fit: cover;
 }
+.swiper.swiper-initialized.swiper-horizontal.swiper-free-mode.mySwiper {
+  z-index: -1;
+}
 #star {
   width: 80%;
 }
